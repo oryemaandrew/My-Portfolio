@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom website development that actually drives sales. Free strategy call included.">
+    <title>Hire Me | Custom Website Development</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Additional sales page styles */
+        .sales-hero {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 120px 0 80px;
+        }
+        
+        .pas-headline {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pas-problem {
+            color: var(--error);
+            font-weight: bold;
+        }
+        
+        .pas-solution {
+            color: var(--success);
+        }
+        
+        .social-proof-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stat-box {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-number-large {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            opacity: 0.7;
+        }
+        
+        .client-logos span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .rating {
+            color: gold;
+            margin: 0.5rem 0;
+        }
+        
+        .case-study {
+            background: linear-gradient(135deg, var(--card-bg), var(--bg-secondary));
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .guarantee-badge {
+            background: var(--success);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .urgency-banner {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid var(--error);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: var(--error);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            width: 33%;
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .countdown span {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            margin: 0 0.25rem;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .pricing-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--accent);
+            transform: scale(1.02);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+        
+        .price small {
+            font-size: 1rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .faq-item {
+            background: var(--card-bg);
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1rem 1rem;
+        }
+        
+        .lead-magnet-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: none;
+            border: 1px solid var(--accent);
+        }
+        
+        .lead-magnet-popup.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .close-popup {
+            float: right;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .booking-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .calendly-inline-widget {
+            min-height: 700px;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .pas-headline {
+                font-size: 2rem;
+            }
+            .social-proof-stats {
+                grid-template-columns: 1fr;
+            }
+            .lead-magnet-popup {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">YN.</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">Portfolio</a></li>
+                <li><a href="#services" class="nav-item">Services</a></li>
+                <li><a href="#pricing" class="nav-item">Pricing</a></li>
+                <li><a href="#faq" class="nav-item">FAQ</a></li>
+                <li><a href="#book" class="nav-item btn btn-primary" style="padding: 0.5rem 1rem;">Book Call →</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- PAS HERO SECTION -->
+        <section class="sales-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="urgency-banner">
+                            ⚡ Taking only 2 clients this month • <span id="spotsLeft">2</span> spots left
+                            <div class="progress-bar" style="width: 0%"></div>
+                        </div>
+                        
+                        <h1 class="pas-headline">
+                            <span class="pas-problem">Your website isn't making sales.</span><br>
+                            <span>I build sites that <span class="pas-solution">print money while you sleep.</span></span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Every 1 second delay = 7% fewer sales. Bad design = 94% of first impressions are negative. 
+                            I fix both. Custom websites that load in under 1 second and convert visitors into customers.
+                        </p>
+                        
+                        <div class="hero-buttons">
+                            <a href="#pricing" class="btn btn-primary">See packages →</a>
+                            <a href="#book" class="btn btn-secondary">Free strategy call</a>
+                        </div>
+                        
+                        <div class="guarantee-badge" style="margin-top: 2rem;">
+                            🛡️ 100% Risk-Free • Pay only when you're 100% satisfied
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF STACK -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Real Results. Real Clients.</h2>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="social-proof-stats">
+                    <div class="stat-box">
+                        <div class="stat-number-large" data-target="247">0</div>
+                        <div class="stat-label">K+ Revenue Generated</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number-large" data-target="94">0</div>
+                        <div class="stat-label">Faster Load Times (%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number-large" data-target="312">0</div>
+                        <div class="stat-label">Conversion Increase (%)</div>
+                    </div>
+                </div>
+                
+                <div class="client-logos">
+                    <span>⚡ TechStart</span>
+                    <span>📈 GrowthLabs</span>
+                    <span>🛒 ShopFlow</span>
+                    <span>🎯 TargetDev</span>
+                    <span>💼 VentureCo</span>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div style="display: flex; align-items: center;">
+                        <div class="avatar-placeholder" style="width: 60px; height: 60px; font-size: 1.5rem;">👩</div>
+                        <div>
+                            <h4>Sarah Martinez</h4>
+                            <span>Founder, TechStart</span>
+                        </div>
+                    </div>
+                    <div class="rating">★★★★★</div>
+                    <p>"My old site got 50 visits/month. His redesign? 2,000+ visits and $47k in sales within 3 months. Best investment I made."</p>
+                </div>
+                
+                <div class="case-study">
+                    <h3>📊 Case Study: From $3k to $47k in 90 Days</h3>
+                    <p><strong>Problem:</strong> E-commerce store with 4-second load time, 2% conversion rate</p>
+                    <p><strong>Solution:</strong> Complete rebuild with optimized images, CDN, and checkout flow</p>
+                    <p><strong>Result:</strong> 0.8s load time, 8.5% conversion rate, $47,283 in sales</p>
+                    <a href="#" style="color: var(--accent);">Read full breakdown →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Invest in Your Growth</h2>
+                    <div class="underline"></div>
+                    <p>One-time investment. Lifetime returns.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Essential</h3>
+                        <div class="price">$1,999</div>
+                        <ul class="pricing-features">
+                            <li>✓ 5-page custom website</li>
+                            <li>✓ Mobile responsive</li>
+                            <li>✓ SEO optimized</li>
+                            <li>✓ Contact form</li>
+                            <li>✓ 1 month support</li>
+                        </ul>
+                        <a href="#book" class="btn btn-primary">Get Started →</a>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="guarantee-badge" style="margin-bottom: 1rem;">⭐ Most Popular</div>
+                        <h3>Business</h3>
+                        <div class="price">$3,999</div>
+                        <ul class="pricing-features">
+                            <li>✓ 10-page custom website</li>
+                            <li>✓ Mobile responsive</li>
+                            <li>✓ SEO optimized + Blog</li>
+                            <li>✓ Contact form + Newsletter</li>
+                            <li>✓ 3 months support</li>
+                            <li>✓ Analytics setup</li>
+                            <li>✓ Speed optimization</li>
+                        </ul>
+                        <a href="#book" class="btn btn-primary">Get Started →</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <div class="price">$7,999+</div>
+                        <ul class="pricing-features">
+                            <li>✓ Unlimited pages</li>
+                            <li>✓ Custom features/apps</li>
+                            <li>✓ E-commerce ready</li>
+                            <li>✓ 12 months support</li>
+                            <li>✓ Priority 24hr response</li>
+                            <li>✓ Ongoing maintenance</li>
+                        </ul>
+                        <a href="#book" class="btn btn-primary">Contact →</a>
+                    </div>
+                </div>
+                
+                <div class="countdown" style="margin-top: 2rem;">
+                    ⏰ Special pricing ends in:
+                    <div>
+                        <span id="days">00</span>d 
+                        <span id="hours">12</span>h 
+                        <span id="minutes">30</span>m 
+                        <span id="seconds">45</span>s
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBJECTION CRUSHER FAQ -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Objections? Let Me Crush Them.</h2>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        "You're too expensive."
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        My cheapest client made back their investment in 2 weeks. Can your current solution do that? I don't compete on price. I compete on ROI.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        "I can just use Wix/WordPress myself."
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You can. But can Wix get you a 0.8s load time? Rank #1 on Google? Handle 10k visitors without crashing? Custom development = performance you can't get from drag-and-drop.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        "How do I know you won't disappear after payment?"
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Check my portfolio (linked above). Every client gets a signed contract, milestone payments, and 30-day post-launch support. You own everything. I'm a DM away.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        "How long does it take?"
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Essential: 2-3 weeks. Business: 4-6 weeks. Enterprise: 8-12 weeks. Rush options available (+25%).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING SECTION -->
+        <section id="book" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ready to Grow Your Business?</h2>
+                    <div class="underline"></div>
+                    <p>Free 20-minute strategy call. No pitch. Just value.</p>
+                </div>
+                
+                <div class="booking-section">
+                    <div class="guarantee-badge">📞 100% Free • Cancel anytime</div>
+                    
+                    <!-- Calendly Embed (free account at calendly.com) -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/oryemaandrew22/new-meeting" style="min-width:320px;height:700px;"></div>
+                    
+                    <p style="margin-top: 2rem; color: var(--text-secondary);">
+                        Or email me directly: <strong style="color: var(--accent);">oryemaandrew22@gmail.com</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LEAD MAGNET POPUP -->
+    <div id="leadMagnet" class="lead-magnet-popup">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <h3>📚 Free: The Developer Pricing Guide</h3>
+        <p>Stop undercharging. 57 pages of real rates, negotiation scripts, and contracts.</p>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+            <input type="email" name="email" placeholder="Your best email" required style="width: 100%; padding: 0.5rem; margin: 0.5rem 0;">
+            <input type="hidden" name="_subject" value="Lead Magnet Download">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send me the guide →</button>
+        </form>
+        <small>2,347+ developers downloaded this. Unsubscribe anytime.</small>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved. Built to convert. 🔥</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Additional sales page JavaScript -->
+    <script>
+        // Counter animation for stats
+        function animateSalesStats() {
+            const stats = document.querySelectorAll('.stat-number-large');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 50;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        stat.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        stat.textContent = target + (stat.innerHTML.includes('K') ? 'K' : '');
+                    }
+                };
+                updateCounter();
+            });
+        }
+        
+        // Countdown timer for urgency
+        function updateCountdown() {
+            const now = new Date();
+            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+            const diff = endOfMonth - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (86400000)) / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Show popup after 10 seconds
+        setTimeout(() => {
+            const popup = document.getElementById('leadMagnet');
+            if (!localStorage.getItem('popupShown')) {
+                popup.classList.add('show');
+                localStorage.setItem('popupShown', 'true');
+            }
+        }, 10000);
+        
+        function closePopup() {
+            document.getElementById('leadMagnet').classList.remove('show');
+        }
+        
+        // Update spots left randomly (demo)
+        let spots = 2;
+        setInterval(() => {
+            if (spots > 0 && Math.random() > 0.7) {
+                spots--;
+                document.getElementById('spotsLeft').textContent = spots;
+                document.querySelector('.progress-bar').style.width = `${((2-spots)/2)*100}%`;
+            }
+        }, 30000);
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            animateSalesStats();
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            // Smooth scroll for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Calendly script (optional - replace with your Calendly link) -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
