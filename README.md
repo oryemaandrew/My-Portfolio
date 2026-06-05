@@ -3,10 +3,11 @@
 Welcome to my personal portfolio website!
 
 About This Project
+
 I built this portfolio to showcase my skills as a full-stack web developer. It features a clean design, dark/light theme, and interactive project filtering.
 
 Features
-- **Theme Toggle** - Switch between dark and light mode
+
 - **Project Filter** - Filter projects by Frontend/Backend category  
 - **Contact Form** - Send me messages via EmailJS
 - **Responsive Design** - Works on all devices
@@ -17,9 +18,6 @@ Technologies
 - JavaScript (DOM manipulation, events)
 - formspree.
 
-Live Demo
-[View Portfolio](https://oryemaandrew.github.io/My-Portfolio)
-
 Setup
 1. Clone this repository
 2. Open index.html in your browser
@@ -28,7 +26,5 @@ Setup
 Contact
 **Email:** oryemaandrew22@gmail.com  
 **GitHub:** [@oryemaandrew](https://github.com/oryemaandrew)
-
----
 
 *Built from scratch as part of my web development journey*
