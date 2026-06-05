@@ -19,6 +19,7 @@
     --error: #ff3366;
 }
 
+
 /* LIGHT THEME - Override variables when light-theme class is on body */
 body.light-theme {
     --bg-primary: #f5f5f5;
